@@ -10,7 +10,7 @@ export const cubesData = {
         },
         final: {
             top: 55,
-            left: 15,
+            left: 15,   
             rotateX: 0,
             rotateY: 3,
             rotateZ: 0,
