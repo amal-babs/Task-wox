@@ -16,10 +16,10 @@ const Home = () => {
 
     useEffect(() => {
         if (typeof window !== "undefined") {
-            // ✅ Register ScrollTrigger
+            //  Register ScrollTrigger
             gsap.registerPlugin(ScrollTrigger);
 
-            // ✅ Correctly Initialize Lenis
+            //  Correctly Initialize Lenis
             const lenis = new Lenis();
             function raf(time) {
                 lenis.raf(time);
@@ -27,14 +27,14 @@ const Home = () => {
             }
             requestAnimationFrame(raf);
 
-            // ✅ Link Lenis with GSAP ScrollTrigger
+            //  Link Lenis with GSAP ScrollTrigger
             lenis.on("scroll", ScrollTrigger.update);
             gsap.ticker.add((time) => {
                 lenis.raf(time * 1000);
             });
             gsap.ticker.lagSmoothing(0);
 
-            // ✅ Select Elements
+            //  Select Elements
             const stickySection = stickyRef.current;
             const logo = logoRef.current;
             const cubesContainer = cubesContainerRef.current;
@@ -155,7 +155,7 @@ const Home = () => {
                                 {[...Array(6)].map((_, faceIndex) => (
                                     
                                     <div key={faceIndex} className={styles[getFaceClass(faceIndex)]}>
-                                        <img 
+                                        <img className={styles.i}
                                             src={`/images/cube${cubeNumber}img${faceIndex + 1}.jpg`}
                                             alt={`Cube ${cubeNumber} Face ${faceIndex + 1}`}
                                         />
@@ -172,7 +172,7 @@ const Home = () => {
                 </div>
 
                 <div className={styles.subheading} ref={header2Ref}>
-                    <h2>Where innovation meets precision</h2>
+                    <h2 style={{ fontSize: "22px", fontWeight: "bold" }}>Where innovation meets precision </h2>
                     <p>
                         Symphonia unites visionary thinkers, creative architects, and analytical
                         experts, collaborating seamlessly to transform challenges into
