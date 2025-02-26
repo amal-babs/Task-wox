@@ -120,6 +120,10 @@ const Home = () => {
             });
         }
     }, []);
+    const getFaceClass = (faceIndex) => {
+        const faceMap = ['front', 'back', 'right', 'left', 'top', 'bottom'];
+        return faceMap[faceIndex]; 
+    };
 
     return (
         <div className={styles.main}>
@@ -149,8 +153,9 @@ const Home = () => {
                                 className={`${styles.cube} ${styles[`cube${cubeNumber}`]}`}
                             >
                                 {[...Array(6)].map((_, faceIndex) => (
-                                    <div key={faceIndex} className={styles[`face${faceIndex + 1}`]}>
-                                        <img className="img"
+                                    
+                                    <div key={faceIndex} className={styles[getFaceClass(faceIndex)]}>
+                                        <img 
                                             src={`/images/cube${cubeNumber}img${faceIndex + 1}.jpg`}
                                             alt={`Cube ${cubeNumber} Face ${faceIndex + 1}`}
                                         />
