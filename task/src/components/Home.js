@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cubesData } from "./cubesData";
 import styles from "@/app/styles/LandingPage.module.scss";
+import Image from "next/image";
 
 const Home = () => {
     const stickyRef = useRef(null);
@@ -155,9 +156,14 @@ const Home = () => {
                                 {[...Array(6)].map((_, faceIndex) => (
                                     
                                     <div key={faceIndex} className={styles[getFaceClass(faceIndex)]}>
-                                        <img className={styles.i}
+                                        <Image className={styles.i}
                                             src={`/images/cube${cubeNumber}img${faceIndex + 1}.jpg`}
                                             alt={`Cube ${cubeNumber} Face ${faceIndex + 1}`}
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, 150px"
+                                            quality={75}
+                                            priority={index < 3} // Only load first 3 images eagerly
+                                            loading={index < 3 ? "eager" : "lazy"}
                                         />
                                     </div>
                                 ))}
