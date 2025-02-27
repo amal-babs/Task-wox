@@ -1,7 +1,7 @@
 export const cubesData = {
     "cube1": {
         initial: {
-            top: -55,
+            top: -50,
             left: 37.5,
             rotateX: 360,
             rotateY: -360,
